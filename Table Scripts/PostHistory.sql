@@ -3,7 +3,7 @@
 -- Inserting data from the XML file into the PostHistory Table
 DECLARE @FileData XML
 
-SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'D:\StackExchange DB DUMP\stackexchange\dba.stackexchange.com\PostHistory.xml' ,SINGLE_BLOB) AS X
+SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'DbDumpLocation\PostHistory.xml' ,SINGLE_BLOB) AS X
 
 INSERT INTO PostHistory
 
