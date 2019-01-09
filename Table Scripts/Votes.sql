@@ -3,7 +3,7 @@
 -- Inserting data from the XML file into the Votes table
 DECLARE @FileData XML
 
-SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'D:\StackExchange DB DUMP\stackexchange\dba.stackexchange.com\Votes.xml', SINGLE_BLOB) AS X
+SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'DbDumpLocation\Votes.xml', SINGLE_BLOB) AS X
 
 INSERT INTO Votes
 SELECT	X.xData.value('@Id','int') Id,

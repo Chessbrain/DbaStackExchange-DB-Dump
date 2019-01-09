@@ -3,7 +3,7 @@
 -- Inserting data from the XML file into the Posts table
 DECLARE @FileData XML
 
-SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'D:\StackExchange DB DUMP\stackexchange\dba.stackexchange.com\Posts.xml', SINGLE_BLOB) AS X
+SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'DbDumpLocation\Posts.xml', SINGLE_BLOB) AS X
 
 INSERT INTO Posts
 SELECT	X.xData.value('@Id','int') Id,

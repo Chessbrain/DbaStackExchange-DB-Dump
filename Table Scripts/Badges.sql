@@ -3,7 +3,7 @@
 -- Inserting data from the XML file into the Badges table
 DECLARE @FileData XML
 
-SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'D:\StackExchange DB DUMP\stackexchange\dba.stackexchange.com\Badges.xml', SINGLE_BLOB) AS X
+SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'DbDumpLocation\Badges.xml', SINGLE_BLOB) AS X
 
 INSERT INTO Badges
 SELECT	X.xData.value('@Id','int') Id,

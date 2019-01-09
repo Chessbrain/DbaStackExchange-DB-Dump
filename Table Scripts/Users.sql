@@ -3,7 +3,7 @@
 -- Inserting data from the XML file into the Users table
 DECLARE @FileData XML;
 
-SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'D:\StackExchange DB DUMP\stackexchange\dba.stackexchange.com\Users.xml', SINGLE_BLOB) AS X;
+SELECT @FileData = BulkColumn FROM OPENROWSET(BULK 'DbDumpLocation\Users.xml', SINGLE_BLOB) AS X;
 
 INSERT INTO Users
 SELECT	X.xData.value('@Id','int') Id,
